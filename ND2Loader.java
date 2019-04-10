@@ -8,6 +8,7 @@ public class ND2Loader extends JPanel
     JButton openButton, confirmButton;
     JTextArea log;
     JFileChooser fc;
+    JFrame frame;
     File file;
     private char purpose;
     public ND2Loader() {
@@ -26,7 +27,7 @@ public class ND2Loader extends JPanel
         buttonPanel.add(confirmButton);
         add(buttonPanel, BorderLayout.PAGE_START);
         add(logScrollPane, BorderLayout.CENTER);
-        JFrame frame = new JFrame("ND2Loader");
+        frame = new JFrame("ND2Loader");
         frame.setTitle("File Loader");
         frame.setBounds(100, 100, 751, 708);
         frame.setSize(300, 300);
@@ -46,9 +47,11 @@ public class ND2Loader extends JPanel
             openButton.setText(file.getName());
         } else if (e.getSource() == confirmButton) {
         	if (file != null && purpose == 'T'){
+        		frame.setVisible(false);
         		//RoiTrain roitrain = new RoiTrain(returnFile(file));
         	}
         	if (file != null && purpose == 'I') {
+        		frame.setVisible(false);
         		//Ident ident = new Ident (returnFile(file));
         	}
         } else {

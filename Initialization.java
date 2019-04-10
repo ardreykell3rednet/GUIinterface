@@ -73,12 +73,14 @@ public class Initialization {
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmInitialization.setVisible(false);
-				if(cellIdent) {
+				if(cellIdent && !netTrain) {
 					ChannelSelection channel = new ChannelSelection('I');
-				} else {
-					if(netTrain) {
+				} else if (netTrain && !cellIdent){
 						ChannelSelection channel = new ChannelSelection('T');
-					}
+				} else {
+					frmInitialization.setVisible(true);
+					cellIdent = false;
+					netTrain = false;
 				}
 			}
 		});

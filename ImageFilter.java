@@ -10,7 +10,7 @@ public class ImageFilter extends FileFilter {
         String extension = getExtension(f);
         if (extension != null) {
             if (extension.equals("tif") ||
-                extension.equals("nd2"))  {
+                extension.equals("nd2") || extension.contentEquals("roi"))  {
                     return true;
             } else {
                 return false;
